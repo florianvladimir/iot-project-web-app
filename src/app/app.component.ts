@@ -49,7 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // Let's check whether notification permissions have alredy been granted
     else if (Notification.permission === "granted") {
       // If it's okay let's create a notification
-      var notification = new Notification("Hi there!");
+      var notification = new Notification("Auchtung! Chuchichäschtli isch no offe");
     }
 
     // Otherwise, we need to ask the user for permission
@@ -57,12 +57,10 @@ export class AppComponent implements OnInit, OnDestroy {
       Notification.requestPermission(function (permission) {
         // If the user accepts, let's create a notification
         if (permission === "granted") {
-          var notification = new Notification("Hi there!");
+          var notification = new Notification("Auchtung! Chuchichäschtli isch no offe");
         }
       });
     }
 
-    // At last, if the user has denied notifications, and you
-    // want to be respectful there is no need to bother them any more.
   }
 }
