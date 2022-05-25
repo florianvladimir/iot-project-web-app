@@ -1,0 +1,32 @@
+<ng-container *ngIf="thingspeakData && thingspeakData.entries.length > 0">
+  <mat-card class="state-card">
+    <mat-card-title >Current Alarming:</mat-card-title>
+    <mat-card-content>
+      <ng-container *ngIf="thingspeakData.entries[0].alarmType === ALARM_TYPE_NO;">
+        <mat-icon aria-hidden="false" aria-label="door open" class="state-icon">check_circle</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="thingspeakData.entries[0].alarmType === ALARM_TYPE_WARNING;">
+        <mat-icon aria-hidden="false" aria-label="door open" class="state-icon">warning</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="thingspeakData.entries[0].alarmType === ALARM_TYPE_ALARM;">
+        <mat-icon aria-hidden="false" aria-label="door open" class="state-icon">error</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="thingspeakData.entries[0].alarmType === ALARM_TYPE_OFF;">
+        <mat-icon aria-hidden="false" aria-label="door open" class="state-icon">notifications_off</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="thingspeakData.entries[0].alarmType === ALARM_TYPE_EMAIL;">
+        <mat-icon aria-hidden="false" aria-label="door open" class="state-icon">send</mat-icon>
+      </ng-container>
+    </mat-card-content>
+    <mat-card-actions>
+      <ng-container *ngIf="thingspeakData.entries[0].alarmType === ALARM_TYPE_ALARM || thingspeakData.entries[0].alarmType === ALARM_TYPE_WARNING">
+        <p>Turn of alarm:</p>
+        <button mat-raised-button (click)="switchOffAlarm(60)">1 min</button>
+        <button mat-raised-button (click)="switchOffAlarm(300)">5 min</button>
+      </ng-container>
+      <ng-container *ngIf="thingspeakData.entries[0].alarmType === ALARM_TYPE_OFF">
+        <p>Alarm was tuned off</p>
+      </ng-container>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

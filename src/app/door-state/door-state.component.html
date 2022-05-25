@@ -1,0 +1,20 @@
+<ng-container *ngIf="thingspeakData && thingspeakData.entries.length > 0">
+  <mat-card class="state-card" [ngClass]="{'card-open': thingspeakData.entries[0].doorState == 1, 'card-closed': thingspeakData.entries[0].doorState == 0}">
+    <mat-card-title >Current Door State:</mat-card-title>
+    <mat-card-content>
+      <ng-container *ngIf="thingspeakData.entries[0].doorState == 1;else closed">
+        <mat-icon aria-hidden="false" aria-label="door open" class="state-icon">meeting_room</mat-icon>
+        <h2>Open</h2>
+      </ng-container>
+      <p class="state-date">{{thingspeakData.entries[0].createdAt | date : 'dd. MMM yyyy HH:mm:ss'}}</p>
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+</ng-container>
+
+<ng-template #closed>
+  <mat-icon aria-hidden="false" aria-label="Example home icon" class="state-icon">door_front</mat-icon>
+  <h2>Closed</h2>
+</ng-template>

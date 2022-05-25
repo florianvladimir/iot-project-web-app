@@ -1,0 +1,28 @@
+<mat-card class="state-card">
+  <mat-card-title>Alarm Configuration:</mat-card-title>
+  <mat-card-content>
+
+    <mat-form-field class="example-chip-list" appearance="fill"  style="width: 100%">
+      <mat-label>Emails for alarm:</mat-label>
+      <mat-chip-list #chipList aria-label="Video keywords" multiple [formControl]="formControl">
+        <mat-chip
+          *ngFor="let email of emails"
+          [selected]="email"
+          [value]="email"
+          (removed)="removeKeyword(email)">
+          {{email}}
+        </mat-chip>
+        <input
+          placeholder="Add email"
+          type="email"
+          [matChipInputFor]="chipList"
+          (matChipInputTokenEnd)="addKeywordFromInput($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>

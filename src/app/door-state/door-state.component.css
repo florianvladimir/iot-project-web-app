@@ -1,0 +1,37 @@
+.state-card{
+  text-align: center;
+}
+
+.state-icon{
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+}
+
+.state-date{
+  color: #c9c9c9;
+}
+
+.card-open{
+  background-color: #654149;
+}
+
+.card-closed{
+  background-color: #3a4d41;
+}
+
+::ng-deep .card-closed .mat-progress-bar-fill::after {
+  background-color: #5c966f;
+}
+
+::ng-deep .card-open .mat-progress-bar-fill::after {
+  background-color: #913636;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #656565;
+}
+
+::ng-deep .mat-progress-bar {
+  border-radius: 2px;
+}

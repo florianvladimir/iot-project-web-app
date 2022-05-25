@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-card{
+  margin-bottom: 2em;
+}
+
+/* Border */
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
+}
+/* Font color */
+input.mat-input-element {
+  color: white;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label{
+  color: white;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color: white;
+}
